@@ -612,6 +612,66 @@
             font-size: 0.9rem;
         }
 
+        .rating {
+            color: #f59e0b;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .map-container {
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .map-info {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .map-info p {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .directions-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .directions-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(26, 58, 110, 0.2);
+        }
+
         /* Contact Section */
         .contact {
             padding: 100px 0;
@@ -859,6 +919,10 @@
             .contact-container {
                 flex-direction: column;
             }
+            
+            .map-container {
+                height: 400px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -904,6 +968,10 @@
                 bottom: 20px;
                 left: 20px;
             }
+            
+            .map-container {
+                height: 350px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -926,6 +994,10 @@
             .whatsapp-btn {
                 font-size: 0.8rem;
                 padding: 6px 12px;
+            }
+            
+            .map-container {
+                height: 300px;
             }
         }
     </style>
@@ -1004,9 +1076,9 @@
             <div class="contact-info">
                 <div class="phone-number">
                     <i class="fas fa-phone"></i>
-                    01006070672
+                    01124299138
                 </div>
-                <a href="https://wa.me/201006070672" class="whatsapp-btn" target="_blank">
+                <a href="https://wa.me/201124299138" class="whatsapp-btn" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                     تواصل عبر واتساب
                 </a>
@@ -1024,6 +1096,7 @@
                 <li><a href="#court">صور المحكمة</a></li>
                 <li><a href="#cases">القضايا السابقة</a></li>
                 <li><a href="#testimonials">آراء العملاء</a></li>
+                <li><a href="#map">الخريطة</a></li>
                 <li><a href="#contact">اتصل بنا</a></li>
             </ul>
         </div>
@@ -1035,7 +1108,7 @@
             <h2>مكتب <span class="highlight">المحامي مجدي رياض</span> بالنقض</h2>
             <p>تمثيل قانوني متميز وخدمات استشارية عالية الجودة في جميع القضايا المدنية والتجارية منذ أكثر من 40 عاماً</p>
             <div class="cta-buttons">
-                <a href="https://wa.me/201006070672" class="btn btn-primary" target="_blank">
+                <a href="https://wa.me/201124299138" class="btn btn-primary" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                     تواصل عبر واتساب
                 </a>
@@ -1103,6 +1176,15 @@
                 </div>
                 <div class="image-card">
                     <img src="https://placehold.co/600x400/2c5282/ffffff?text=أروقة+المحكمة+الجزئية" alt="أروقة المحكمة الجزئية">
+                </div>
+                <div class="image-card">
+                    <img src="https://placehold.co/600x400/1a3a6e/ffffff?text=قاعة+الجلسات" alt="قاعة الجلسات">
+                </div>
+                <div class="image-card">
+                    <img src="https://placehold.co/600x400/2c5282/ffffff?text=مكتب+التسجيل" alt="مكتب التسجيل">
+                </div>
+                <div class="image-card">
+                    <img src="https://placehold.co/600x400/1a3a6e/ffffff?text=المحكمه+الداخلية" alt="المحكمة الداخلية">
                 </div>
             </div>
         </div>
@@ -1294,94 +1376,155 @@
             </div>
             <div class="testimonials-slider">
                 <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                     <div class="testimonial-content">
-                        <p>المحامي مجدي رياض يتمتع بخبرة قانونية عالية واحترافية في التعامل مع القضايا. تمكنت من الفوز بقضية ملكية عقارية معقدة بفضل استراتيجيته القانونية المتقنة ومرافعاته القوية. خبرته التي تمتد لأكثر من 40 عاماً تجعله خياراً ممتازاً لأي قضية قانونية.</p>
+                        <p>ساعدني الأستاذ مجدي في استرداد محلي بالقصر العيني بعد أن أخذ مني بحكم قضائي تم الطعن عليه بالنقض، وتم استرداده بعد قضاء النقض بإلغاء الحكم الخاطئ.</p>
                     </div>
                     <div class="client-info">
                         <div class="client-avatar">
-                            <img src="https://placehold.co/100x100/2c5282/ffffff?text=أ" alt="عميل">
+                            <img src="https://placehold.co/100x100/2c5282/ffffff?text=ا" alt="عميل">
                         </div>
                         <div class="client-details">
-                            <h4>أحمد محمد</h4>
+                            <h4>إبراهيم مبروك</h4>
                             <p>عميل سابق - قضية عقارية</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                     <div class="testimonial-content">
-                        <p>تعاملت مع المحامي مجدي رياض في قضية تجارية معقدة، وكان دفاعه قوياً ومقنعاً. استطاع إثبات حقوق شركتي من خلال المستندات القانونية الدقيقة. خبرته الطويلة في المجال التجاري كانت عاملاً حاسماً في الفوز بالقضية.</p>
+                        <p>ساعدني الأستاذ مجدي في الحصول على متجمد نفقة ابنتي الصغيرة وزيادتها في فترة قصيرة جدًا.</p>
                     </div>
                     <div class="client-info">
                         <div class="client-avatar">
-                            <img src="https://placehold.co/100x100/1a3a6e/ffffff?text=م" alt="عميل">
+                            <img src="https://placehold.co/100x100/1a3a6e/ffffff?text=س" alt="عميل">
                         </div>
                         <div class="client-details">
-                            <h4>محمد عبد الله</h4>
-                            <p>عميل سابق - قضية تجارية</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>استشارات المحامي مجدي رياض كانت مفيدة جداً في تسوية نزاع تجاري بين شركتي وشريك تجاري. تمكنا من الوصول إلى تسوية ودية بفضل توجيهاته القانونية الدقيقة. خبرته التي تمتد لأكثر من أربعة عقود تجعله مرجعاً قانونياً موثوقاً.</p>
-                    </div>
-                    <div class="client-info">
-                        <div class="client-avatar">
-                            <img src="https://placehold.co/100x100/2c5282/ffffff?text=س" alt="عميل">
-                        </div>
-                        <div class="client-details">
-                            <h4>سارة أحمد</h4>
-                            <p>عميلة سابقة - استشارات تجارية</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>تمثيل المحامي مجدي رياض لي في قضية نفقة كان ممتازاً. حصلت على جميع مستحقاتي المالية بفضل معرفته العميقة بالقوانين المتعلقة بقضايا الأسرة. خبرته الطويلة في هذا المجال جعلت الفرق الكبير في النتيجة.</p>
-                    </div>
-                    <div class="client-info">
-                        <div class="client-avatar">
-                            <img src="https://placehold.co/100x100/1a3a6e/ffffff?text=ن" alt="عميل">
-                        </div>
-                        <div class="client-details">
-                            <h4>نادية حسن</h4>
+                            <h4>سالمة على</h4>
                             <p>عميلة سابقة - قضية نفقة</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                     <div class="testimonial-content">
-                        <p>المحامي مجدي رياض ساعدني في استرداد مبلغ كبير كان مستحقاً لي من شركة تأخرت في السداد. تمكن من الفوز بالقضية بعد جلسات عديدة، وكان متابعته للقضية دقيقة جداً. خبرته التي تمتد لأكثر من 40 عاماً تظهر في كل تفصيلة من تفاصيل القضية.</p>
+                        <p>ساعدني الأستاذ مجدي في الحصول على حقوقي المسلوبة بفعل التزوير في عقد بيع، وتم -والحمد لله- استرداد حقوقي كاملة بعد الطعن بالتزوير على العقد وإثبات التزوير.</p>
                     </div>
                     <div class="client-info">
                         <div class="client-avatar">
-                            <img src="https://placehold.co/100x100/2c5282/ffffff?text=ع" alt="عميل">
+                            <img src="https://placehold.co/100x100/2c5282/ffffff?text=ح" alt="عميل">
                         </div>
                         <div class="client-details">
-                            <h4>عمر خالد</h4>
-                            <p>عميل سابق - قضية مالية</p>
+                            <h4>حسين محمود</h4>
+                            <p>عميل سابق - قضية تزوير</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                     <div class="testimonial-content">
-                        <p>كنت قلقاً جداً من قضية إدارية ضد جهة حكومية، لكن المحامي مجدي رياض طمأنني من اللحظة الأولى. قدم دفاعاً قوياً ومستنداً على قرارات قضائية سابقة، وتمكنا من الفوز بالقضية. خبرته في القضايا الإدارية لا تضاهى.</p>
+                        <p>ساعدني الأستاذ مجدي في الحفاظ على شقتي السكنية بعد صدور حكم قضائي بفسخ العقد وإخلائها، وتم إلغاء الحكم -والحمد لله-.</p>
                     </div>
                     <div class="client-info">
                         <div class="client-avatar">
-                            <img src="https://placehold.co/100x100/1a3a6e/ffffff?text=ف" alt="عميل">
+                            <img src="https://placehold.co/100x100/1a3a6e/ffffff?text=ا" alt="عميل">
                         </div>
                         <div class="client-details">
-                            <h4>فاطمة علي</h4>
-                            <p>عميلة سابقة - قضية إدارية</p>
+                            <h4>إبراهيم محمد</h4>
+                            <p>عميل سابق - قضية إخلاء</p>
                         </div>
                     </div>
                 </div>
+                
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>ساعدني الأستاذ مجدي في الحصول على حكم قضائي بإلغاء قرار الامتناع عن إصدار ترخيص بناء للسطح.</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="https://placehold.co/100x100/2c5282/ffffff?text=م" alt="عميل">
+                        </div>
+                        <div class="client-details">
+                            <h4>منى محمد</h4>
+                            <p>عميلة سابقة - قضية تراخيص</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>ساعدني الأستاذ مجدي في الحصول على حكم قضائي بالالتحاق للدراسة بجامعة الأزهر بعد امتناعها عن قبولي.</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="https://placehold.co/100x100/1a3a6e/ffffff?text=م" alt="عميل">
+                        </div>
+                        <div class="client-details">
+                            <h4>محمد أحمد</h4>
+                            <p>عميل سابق - قضية تعليمية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="map">
+        <div class="container">
+            <div class="section-title">
+                <h2>موقع المكتب</h2>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.490841327733!2d31.239467515183334!3d30.00885288188518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581e2d1a5a5a5f%3A0x5a5a5a5a5a5a5a5a!2s%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20......" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="map-info">
+                <p><i class="fas fa-map-marker-alt"></i> شارع عبد المنعم رياض، المعادي، بجوار المحكمة الجزئية، الدور الأول</p>
+                <a href="https://maps.app.goo.gl/jFkqkqWgJdxTixgs7" target="_blank" class="directions-btn">
+                    <i class="fas fa-directions"></i>
+                    اتجه إلى المكتب
+                </a>
             </div>
         </div>
     </section>
@@ -1398,14 +1541,14 @@
                             <i class="fas fa-phone"></i>
                             <div>
                                 <h4>رقم الهاتف</h4>
-                                <p>01006070672</p>
+                                <p>01124299138</p>
                             </div>
                         </li>
                         <li>
                             <i class="fab fa-whatsapp"></i>
                             <div>
                                 <h4>واتساب</h4>
-                                <p>01006070672</p>
+                                <p>01124299138</p>
                             </div>
                         </li>
                         <li>
@@ -1495,14 +1638,15 @@
                         <li><a href="#court"><i class="fas fa-chevron-left"></i> صور المحكمة</a></li>
                         <li><a href="#cases"><i class="fas fa-chevron-left"></i> القضايا السابقة</a></li>
                         <li><a href="#testimonials"><i class="fas fa-chevron-left"></i> آراء العملاء</a></li>
+                        <li><a href="#map"><i class="fas fa-chevron-left"></i> الخريطة</a></li>
                         <li><a href="#contact"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>معلومات الاتصال</h3>
                     <ul class="footer-links">
-                        <li><a href="tel:01006070672"><i class="fas fa-phone"></i> 01006070672</a></li>
-                        <li><a href="https://wa.me/201006070672" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a></li>
+                        <li><a href="tel:01124299138"><i class="fas fa-phone"></i> 01124299138</a></li>
+                        <li><a href="https://wa.me/201124299138" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a></li>
                         <li><a href="#"><i class="fas fa-map-marker-alt"></i> شارع عبد المنعم رياض، المعادي، بجوار المحكمة الجزئية، الدور الأول</a></li>
                         <li><a href="#"><i class="fas fa-clock"></i> من السبت إلى الخميس، 9:00 ص - 6:00 م</a></li>
                     </ul>
@@ -1515,7 +1659,7 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/201006070672" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/201124299138" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
