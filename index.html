@@ -322,6 +322,61 @@
             font-size: 0.9rem;
         }
 
+        /* Court Images Section */
+        .court-images {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .court-images h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .court-images h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .image-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 300px;
+        }
+
+        .image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.1);
+        }
+
         /* Services Section */
         .services {
             padding: 100px 0;
@@ -876,6 +931,69 @@
     </style>
 </head>
 <body>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YGVCGYW1XY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YGVCGYW1XY');
+        
+        // Additional event tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track page views
+            gtag('event', 'page_view', {
+                'page_title': document.title,
+                'page_location': window.location.href,
+                'page_path': window.location.pathname
+            });
+            
+            // Track WhatsApp clicks
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], .whatsapp-btn, .whatsapp-float');
+            whatsappLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    gtag('event', 'click', {
+                        'event_category': 'Contact',
+                        'event_label': 'WhatsApp Click'
+                    });
+                });
+            });
+            
+            // Track phone calls
+            const phoneLinks = document.querySelectorAll('a[href*="tel"]');
+            phoneLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    gtag('event', 'click', {
+                        'event_category': 'Contact',
+                        'event_label': 'Phone Call'
+                    });
+                });
+            });
+            
+            // Track form submission
+            const contactForm = document.querySelector('.contact-form form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function() {
+                    gtag('event', 'submit', {
+                        'event_category': 'Form',
+                        'event_label': 'Contact Form Submission'
+                    });
+                });
+            }
+            
+            // Track navigation clicks
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    gtag('event', 'click', {
+                        'event_category': 'Navigation',
+                        'event_label': this.textContent.trim()
+                    });
+                });
+            });
+        });
+    </script>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -903,6 +1021,7 @@
                 <li><a href="#home" class="active">الرئيسية</a></li>
                 <li><a href="#about">عن المحامي</a></li>
                 <li><a href="#services">الخدمات القانونية</a></li>
+                <li><a href="#court">صور المحكمة</a></li>
                 <li><a href="#cases">القضايا السابقة</a></li>
                 <li><a href="#testimonials">آراء العملاء</a></li>
                 <li><a href="#contact">اتصل بنا</a></li>
@@ -966,6 +1085,24 @@
                             <p>عضو نقابة المحامين المصرية، وعضو في اتحاد المحامين العرب</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Court Images Section -->
+    <section class="court-images" id="court">
+        <div class="container">
+            <h2>مقر المحكمة الجزئية</h2>
+            <div class="images-grid">
+                <div class="image-card">
+                    <img src="https://placehold.co/600x400/2c5282/ffffff?text=واجهة+المحكمة+الجزئية" alt="واجهة المحكمة الجزئية">
+                </div>
+                <div class="image-card">
+                    <img src="https://placehold.co/600x400/1a3a6e/ffffff?text=مدخل+المحكمة+الجزئية" alt="مدخل المحكمة الجزئية">
+                </div>
+                <div class="image-card">
+                    <img src="https://placehold.co/600x400/2c5282/ffffff?text=أروقة+المحكمة+الجزئية" alt="أروقة المحكمة الجزئية">
                 </div>
             </div>
         </div>
@@ -1299,10 +1436,6 @@
                             <input type="tel" id="phone" name="phone" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">البريد الإلكتروني</label>
-                            <input type="email" id="email" name="email" class="form-control">
-                        </div>
-                        <div class="form-group">
                             <label for="subject">نوع القضية</label>
                             <select id="subject" name="subject" class="form-control" required>
                                 <option value="">اختر نوع القضية</option>
@@ -1359,6 +1492,7 @@
                         <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
                         <li><a href="#about"><i class="fas fa-chevron-left"></i> عن المحامي</a></li>
                         <li><a href="#services"><i class="fas fa-chevron-left"></i> الخدمات القانونية</a></li>
+                        <li><a href="#court"><i class="fas fa-chevron-left"></i> صور المحكمة</a></li>
                         <li><a href="#cases"><i class="fas fa-chevron-left"></i> القضايا السابقة</a></li>
                         <li><a href="#testimonials"><i class="fas fa-chevron-left"></i> آراء العملاء</a></li>
                         <li><a href="#contact"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
@@ -1370,7 +1504,6 @@
                         <li><a href="tel:01006070672"><i class="fas fa-phone"></i> 01006070672</a></li>
                         <li><a href="https://wa.me/201006070672" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a></li>
                         <li><a href="#"><i class="fas fa-map-marker-alt"></i> شارع عبد المنعم رياض، المعادي، بجوار المحكمة الجزئية، الدور الأول</a></li>
-                        <li><a href="mailto:info@magdylaw.com"><i class="fas fa-envelope"></i> info@magdylaw.com</a></li>
                         <li><a href="#"><i class="fas fa-clock"></i> من السبت إلى الخميس، 9:00 ص - 6:00 م</a></li>
                     </ul>
                 </div>
