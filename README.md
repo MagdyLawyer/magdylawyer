@@ -1,16 +1,1437 @@
-## Hi there 👋
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتب المحامي مجدي رياض - المحامي بالنقض</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a3a6e;
+            --secondary-color: #2c5282;
+            --accent-color: #f59e0b;
+            --light-color: #f7fafc;
+            --dark-color: #1a202c;
+            --gray-color: #718096;
+            --success-color: #38a169;
+            --border-color: #e2e8f0;
+        }
 
-<!--
-**MagdyLawyer/magdylawyer** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-Here are some ideas to get you started:
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .phone-number {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2px;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 15px 25px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+            background-color: rgba(26, 58, 110, 0.05);
+        }
+
+        .nav-menu a.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 58, 110, 0.9), rgba(26, 58, 110, 0.8)), url('https://placehold.co/1920x600/1a3a6e/ffffff?text=مكتب+المحامي+مجدي+رياض') no-repeat center center/cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray-color);
+            text-align: justify;
+        }
+
+        .qualification {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: rgba(26, 58, 110, 0.05);
+            border-radius: 10px;
+        }
+
+        .qualification i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .qualification-text h4 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .qualification-text p {
+            margin: 0;
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: #f8fafc;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-size: 3rem;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-content p {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .service-features i {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+        }
+
+        /* Cases Section */
+        .cases {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .case-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .case-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .case-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .case-card:hover .case-image img {
+            transform: scale(1.1);
+        }
+
+        .case-content {
+            padding: 25px;
+        }
+
+        .case-content h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .case-content p {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .case-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: #f8fafc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('https://placehold.co/800x600/f8fafc/1a3a6e?text=') no-repeat center center;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .testimonials-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonials-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+
+        .testimonials-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            min-width: 350px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .testimonial-content::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-color);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            right: 10px;
+        }
+
+        .testimonial-content p {
+            color: var(--dark-color);
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-color);
+        }
+
+        .client-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .client-details h4 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .client-details p {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-details li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .contact-details i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #e69009;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-col p {
+            color: #a0aec0;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            transform: translateX(-5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .contact-info {
+                align-items: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image, .about-text {
+                flex: none;
+                width: 100%;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                overflow-x: auto;
+                padding: 10px 0;
+                white-space: nowrap;
+            }
+
+            .nav-menu a {
+                padding: 10px 15px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .testimonials-slider {
+                gap: 15px;
+            }
+
+            .testimonial-card {
+                min-width: 280px;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .phone-number {
+                font-size: 1.2rem;
+            }
+
+            .whatsapp-btn {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-balance-scale"></i>
+                <h1>مكتب <span>المحامي مجدي رياض</span></h1>
+            </div>
+            <div class="contact-info">
+                <div class="phone-number">
+                    <i class="fas fa-phone"></i>
+                    01006070672
+                </div>
+                <a href="https://wa.me/201006070672" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    تواصل عبر واتساب
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">الرئيسية</a></li>
+                <li><a href="#about">عن المحامي</a></li>
+                <li><a href="#services">الخدمات القانونية</a></li>
+                <li><a href="#cases">القضايا السابقة</a></li>
+                <li><a href="#testimonials">آراء العملاء</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>مكتب <span class="highlight">المحامي مجدي رياض</span> بالنقض</h2>
+            <p>تمثيل قانوني متميز وخدمات استشارية عالية الجودة في جميع القضايا المدنية والتجارية منذ أكثر من 40 عاماً</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/201006070672" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    تواصل عبر واتساب
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i>
+                    اتصل بنا الآن
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>عن المحامي مجدي رياض</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://placehold.co/600x500/1a3a6e/ffffff?text=المحامي+مجدي+رياض" alt="المحامي مجدي رياض">
+                </div>
+                <div class="about-text">
+                    <h3>خبير قانوني معتمد بالنقض</h3>
+                    <p>يحمل المحامي مجدي رياض شهادة مزاولة المحاماة من نقابة المحامين المصرية، وله خبرة طويلة تمتد لأكثر من 40 عاماً في مجالات القانون المختلفة، مع تخصص دقيق في القضايا المدنية والتجارية.</p>
+                    <p>يتميز المحامي مجدي رياض بالكفاءة العالية والاحترافية في التعامل مع القضايا، حيث يضع مصلحة موكله في المقام الأول، ويحرص على تحقيق أفضل النتائج القانونية الممكنة من خلال استراتيجيات دفاع متقنة وتقديم الأدلة والمرافعات بأسلوب قانوني دقيق.</p>
+                    
+                    <div class="qualification">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div class="qualification-text">
+                            <h4>التعليم والتأهيل</h4>
+                            <p>خريج كلية الحقوق - جامعة القاهرة، وحاصل على العديد من الدورات التدريبية المتخصصة في القانون المدني والتجاري</p>
+                        </div>
+                    </div>
+                    
+                    <div class="qualification">
+                        <i class="fas fa-gavel"></i>
+                        <div class="qualification-text">
+                            <h4>الخبرة المهنية</h4>
+                            <p>أكثر من 40 عاماً من الخبرة في ممارسة المهنة القانونية، مع تمثيل آلاف العملاء في مختلف القضايا</p>
+                        </div>
+                    </div>
+                    
+                    <div class="qualification">
+                        <i class="fas fa-award"></i>
+                        <div class="qualification-text">
+                            <h4>العضويات</h4>
+                            <p>عضو نقابة المحامين المصرية، وعضو في اتحاد المحامين العرب</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>الخدمات القانونية</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>القضايا المدنية</h3>
+                        <p>الدفاع عن حقوق العملاء في القضايا المدنية المختلفة أمام المحاكم المختصة.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> قضايا الملكية والعقارات</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا الإيجارات والمستأجرين</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا التعويضات والمطالبات المالية</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا الحجز والتنفيذ</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا المنازعات العقارية</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>القضايا التجارية</h3>
+                        <p>تمثيل الشركات والأفراد في القضايا التجارية والاستشارات القانونية المتعلقة بالأنشطة التجارية.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> قضايا الشركات والمؤسسات</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا الشيكات والكمبيالات</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا المنافسة والاحتكار</li>
+                            <li><i class="fas fa-check-circle"></i> العقود التجارية والاستشارات القانونية</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا التمويل والاستثمار</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>قضايا الأسرة</h3>
+                        <p>الدفاع عن حقوق الأفراد في قضايا الأسرة والمواريث أمام المحاكم الشرعية.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> قضايا الطلاق والنفقة</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا الحضانة والزيارة</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا الميراث والتركة</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا إثبات النسب</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا الوصايا</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>الاستشارات القانونية</h3>
+                        <p>تقديم الاستشارات القانونية الشاملة للعملاء في مختلف المجالات القانونية.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> استشارات قانونية عن بعد</li>
+                            <li><i class="fas fa-check-circle"></i> صياغة العقود والمستندات القانونية</li>
+                            <li><i class="fas fa-check-circle"></i> مراجعة المستندات القانونية</li>
+                            <li><i class="fas fa-check-circle"></i> التمثيل القانوني في المفاوضات</li>
+                            <li><i class="fas fa-check-circle"></i> الاستشارات القانونية للشركات</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>القضايا الإدارية</h3>
+                        <p>تمثيل العملاء أمام القضاء الإداري في القضايا المتعلقة بالقرارات الإدارية.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> الطعون على القرارات الإدارية</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا التعيين والترقيات</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا المعاشات والتأمينات</li>
+                            <li><i class="fas fa-check-circle"></i> قضايا فسخ التعاقدات الحكومية</li>
+                            <li><i class="fas fa-check-circle"></i> الطعون على المناقصات</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>الوساطة القانونية</h3>
+                        <p>حل المنازعات القانونية ودياً من خلال الوساطة القانونية لتوفير الوقت والتكلفة.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> الوساطة في المنازعات التجارية</li>
+                            <li><i class="fas fa-check-circle"></i> الوساطة في المنازعات العقارية</li>
+                            <li><i class="fas fa-check-circle"></i> الوساطة في المنازعات الأسرية</li>
+                            <li><i class="fas fa-check-circle"></i> التوفيق في المنازعات المالية</li>
+                            <li><i class="fas fa-check-circle"></i> صياغة اتفاقيات التسوية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section class="cases" id="cases">
+        <div class="container">
+            <div class="section-title">
+                <h2>القضايا السابقة</h2>
+            </div>
+            <div class="cases-grid">
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="https://placehold.co/400x200/2c5282/ffffff?text=قضية+تجارية" alt="قضية تجارية">
+                    </div>
+                    <div class="case-content">
+                        <h3>قضية نزاع تجاري بين شركتين</h3>
+                        <p>تمثيل شركة في نزاع تجاري مع شريك تجاري حول توزيع الأرباح، حيث تمكنا من إثبات حقوق الشركة في الأرباح المستحقة من خلال المستندات القانونية والمحاسبية.</p>
+                        <div class="case-meta">
+                            <span><i class="fas fa-calendar"></i> 2023</span>
+                            <span><i class="fas fa-gavel"></i> المحكمة الاقتصادية</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="https://placehold.co/400x200/1a3a6e/ffffff?text=قضية+أرض" alt="قضية أرض">
+                    </div>
+                    <div class="case-content">
+                        <h3>قضية ملكية أرض زراعية</h3>
+                        <p>تمثيل موكل في نزاع على ملكية قطعة أرض زراعية، حيث تمكنا من إثبات ملكية الموكل من خلال المستندات التاريخية والشهود، وتم حكم لصالحه.</p>
+                        <div class="case-meta">
+                            <span><i class="fas fa-calendar"></i> 2021</span>
+                            <span><i class="fas fa-gavel"></i> المحكمة الابتدائية</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="https://placehold.co/400x200/2c5282/ffffff?text=قضية+نفقة" alt="قضية نفقة">
+                    </div>
+                    <div class="case-content">
+                        <h3>قضية نفقة وأجور امتناع</h3>
+                        <p>تمثيل موكلة في قضية نفقة وأجور امتناع ضد زوجها السابق، حيث تمكنا من الحصول على حكم لصالحها بجميع المستحقات المالية المستحقة.</p>
+                        <div class="case-meta">
+                            <span><i class="fas fa-calendar"></i> 2023</span>
+                            <span><i class="fas fa-gavel"></i> محكمة الأسرة</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="https://placehold.co/400x200/1a3a6e/ffffff?text=قضية+إدارية" alt="قضية إدارية">
+                    </div>
+                    <div class="case-content">
+                        <h3>قضية طعن على قرار إداري</h3>
+                        <p>تمثيل موظف في طعن على قرار فصل تعسفي من وظيفته الحكومية، حيث تمكنا من إثبات بطلان القرار وتم تثبيت الموظف في وظيفته.</p>
+                        <div class="case-meta">
+                            <span><i class="fas fa-calendar"></i> 2022</span>
+                            <span><i class="fas fa-gavel"></i> مجلس الدولة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container testimonials-content">
+            <div class="section-title">
+                <h2>آراء العملاء</h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>المحامي مجدي رياض يتمتع بخبرة قانونية عالية واحترافية في التعامل مع القضايا. تمكنت من الفوز بقضية ملكية عقارية معقدة بفضل استراتيجيته القانونية المتقنة ومرافعاته القوية. خبرته التي تمتد لأكثر من 40 عاماً تجعله خياراً ممتازاً لأي قضية قانونية.</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="https://placehold.co/100x100/2c5282/ffffff?text=أ" alt="عميل">
+                        </div>
+                        <div class="client-details">
+                            <h4>أحمد محمد</h4>
+                            <p>عميل سابق - قضية عقارية</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>تعاملت مع المحامي مجدي رياض في قضية تجارية معقدة، وكان دفاعه قوياً ومقنعاً. استطاع إثبات حقوق شركتي من خلال المستندات القانونية الدقيقة. خبرته الطويلة في المجال التجاري كانت عاملاً حاسماً في الفوز بالقضية.</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="https://placehold.co/100x100/1a3a6e/ffffff?text=م" alt="عميل">
+                        </div>
+                        <div class="client-details">
+                            <h4>محمد عبد الله</h4>
+                            <p>عميل سابق - قضية تجارية</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>استشارات المحامي مجدي رياض كانت مفيدة جداً في تسوية نزاع تجاري بين شركتي وشريك تجاري. تمكنا من الوصول إلى تسوية ودية بفضل توجيهاته القانونية الدقيقة. خبرته التي تمتد لأكثر من أربعة عقود تجعله مرجعاً قانونياً موثوقاً.</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="https://placehold.co/100x100/2c5282/ffffff?text=س" alt="عميل">
+                        </div>
+                        <div class="client-details">
+                            <h4>سارة أحمد</h4>
+                            <p>عميلة سابقة - استشارات تجارية</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>تمثيل المحامي مجدي رياض لي في قضية نفقة كان ممتازاً. حصلت على جميع مستحقاتي المالية بفضل معرفته العميقة بالقوانين المتعلقة بقضايا الأسرة. خبرته الطويلة في هذا المجال جعلت الفرق الكبير في النتيجة.</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="https://placehold.co/100x100/1a3a6e/ffffff?text=ن" alt="عميل">
+                        </div>
+                        <div class="client-details">
+                            <h4>نادية حسن</h4>
+                            <p>عميلة سابقة - قضية نفقة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>المحامي مجدي رياض ساعدني في استرداد مبلغ كبير كان مستحقاً لي من شركة تأخرت في السداد. تمكن من الفوز بالقضية بعد جلسات عديدة، وكان متابعته للقضية دقيقة جداً. خبرته التي تمتد لأكثر من 40 عاماً تظهر في كل تفصيلة من تفاصيل القضية.</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="https://placehold.co/100x100/2c5282/ffffff?text=ع" alt="عميل">
+                        </div>
+                        <div class="client-details">
+                            <h4>عمر خالد</h4>
+                            <p>عميل سابق - قضية مالية</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>كنت قلقاً جداً من قضية إدارية ضد جهة حكومية، لكن المحامي مجدي رياض طمأنني من اللحظة الأولى. قدم دفاعاً قوياً ومستنداً على قرارات قضائية سابقة، وتمكنا من الفوز بالقضية. خبرته في القضايا الإدارية لا تضاهى.</p>
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="https://placehold.co/100x100/1a3a6e/ffffff?text=ف" alt="عميل">
+                        </div>
+                        <div class="client-details">
+                            <h4>فاطمة علي</h4>
+                            <p>عميلة سابقة - قضية إدارية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>اتصل بنا الآن</h2>
+                    <p>نحن هنا لمساعدتك في جميع القضايا القانونية. لا تتردد في التواصل معنا للحصول على استشارة قانونية مجانية.</p>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>رقم الهاتف</h4>
+                                <p>01006070672</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>واتساب</h4>
+                                <p>01006070672</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>العنوان</h4>
+                                <p>مكتب المحامي مجدي رياض، شارع عبد الخالق ثروت، وسط البلد، القاهرة</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>ساعات العمل</h4>
+                                <p>من السبت إلى الخميس، من 9:00 ص إلى 6:00 م</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <h2 style="color: var(--primary-color); margin-bottom: 20px;">أرسل رسالة</h2>
+                    <form action="https://formspree.io/f/xvgqnplk" method="POST">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">نوع القضية</label>
+                            <select id="subject" name="subject" class="form-control" required>
+                                <option value="">اختر نوع القضية</option>
+                                <option value="مدنية">قضية مدنية</option>
+                                <option value="تجارية">قضية تجارية</option>
+                                <option value="أسرة">قضية أسرة</option>
+                                <option value="إدارية">قضية إدارية</option>
+                                <option value="استشارات">استشارات قانونية</option>
+                                <option value="أخرى">نوع آخر</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>مكتب المحامي مجدي رياض</h3>
+                    <p>مكتب قانوني متخصص في جميع القضايا المدنية والتجارية، مع خبرة طويلة تمتد لأكثر من 40 عاماً في ممارسة المهنة القانونية وتحقيق أفضل النتائج لعملائنا.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>الخدمات القانونية</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> القضايا المدنية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> القضايا التجارية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> قضايا الأسرة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الاستشارات القانونية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> القضايا الإدارية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الوساطة القانونية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-left"></i> عن المحامي</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> الخدمات القانونية</a></li>
+                        <li><a href="#cases"><i class="fas fa-chevron-left"></i> القضايا السابقة</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-left"></i> آراء العملاء</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>معلومات الاتصال</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:01006070672"><i class="fas fa-phone"></i> 01006070672</a></li>
+                        <li><a href="https://wa.me/201006070672" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> شارع عبد الخالق ثروت، وسط البلد، القاهرة</a></li>
+                        <li><a href="mailto:info@magdylaw.com"><i class="fas fa-envelope"></i> info@magdylaw.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> من السبت إلى الخميس، 9:00 ص - 6:00 م</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 مكتب المحامي مجدي رياض. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/201006070672" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Active navigation link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission success message
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                // The form will be submitted to Formspree automatically
+                // We can show a success message after submission
+                setTimeout(() => {
+                    alert('تم إرسال رسالتك بنجاح. سيقوم المحامي بالتواصل معك في أقرب وقت ممكن.');
+                }, 1000);
+            });
+        }
+    </script>
+</body>
+</html>
+```
