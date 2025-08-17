@@ -7,6 +7,7 @@
     <title>مكتب المحامي مجدي رياض - المحامي بالنقض</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <style>
         :root {
             --primary-color: #1a3a6e;
@@ -17,6 +18,7 @@
             --gray-color: #718096;
             --success-color: #38a169;
             --border-color: #e2e8f0;
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -104,7 +106,7 @@
             align-items: center;
             gap: 5px;
             margin-top: 5px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .whatsapp-btn:hover {
@@ -139,7 +141,7 @@
             color: var(--dark-color);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border-bottom: 3px solid transparent;
         }
 
@@ -157,25 +159,27 @@
         .hero {
             background: linear-gradient(rgba(26, 58, 110, 0.9), rgba(26, 58, 110, 0.8)), url('https://placehold.co/1920x600/1a3a6e/ffffff?text=مكتب+المحامي+مجدي+رياض') no-repeat center center/cover;
             color: white;
-            padding: 100px 0;
+            padding: 120px 0 80px;
             text-align: center;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .hero h2 {
-            font-size: 3.5rem;
+        .hero h1 {
+            font-size: 3.8rem;
             margin-bottom: 20px;
             line-height: 1.2;
+            animation: fadeInUp 1s ease;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 30px;
             opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
         .highlight {
@@ -188,6 +192,7 @@
             justify-content: center;
             gap: 20px;
             margin-top: 30px;
+            animation: fadeInUp 1s ease 0.4s both;
         }
 
         .btn {
@@ -197,7 +202,7 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-align: center;
         }
 
@@ -226,10 +231,10 @@
             transform: translateY(-3px);
         }
 
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background-color: white;
+        /* Quick Links */
+        .quick-links {
+            padding: 60px 0;
+            background-color: var(--light-color);
         }
 
         .section-title {
@@ -253,6 +258,66 @@
             width: 80px;
             height: 3px;
             background-color: var(--accent-color);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .link-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            text-align: center;
+            padding: 30px;
+        }
+
+        .link-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .link-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .link-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .link-card p {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+        }
+
+        .link-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .link-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: white;
         }
 
         .about-content {
@@ -295,6 +360,24 @@
             text-align: justify;
         }
 
+        .quote {
+            background-color: rgba(26, 58, 110, 0.05);
+            border-right: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--dark-color);
+            font-size: 1.1rem;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent-color);
+            opacity: 0.3;
+            vertical-align: -0.5em;
+        }
+
         .qualification {
             display: flex;
             align-items: center;
@@ -322,61 +405,6 @@
             font-size: 0.9rem;
         }
 
-        /* Court Images Section */
-        .court-images {
-            padding: 80px 0;
-            background-color: white;
-        }
-
-        .court-images h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 50px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .court-images h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            right: 0;
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent-color);
-        }
-
-        .images-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .image-card {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            height: 300px;
-        }
-
-        .image-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .image-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .image-card:hover img {
-            transform: scale(1.1);
-        }
-
         /* Services Section */
         .services {
             padding: 100px 0;
@@ -394,7 +422,7 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .service-card:hover {
@@ -426,27 +454,108 @@
             text-align: justify;
         }
 
-        .service-features {
-            list-style: none;
+        .read-more-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
         }
 
-        .service-features li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            color: var(--dark-color);
+        .read-more-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
         }
 
-        .service-features i {
-            color: var(--accent-color);
-            font-size: 0.8rem;
+        /* Court Images Section */
+        .court-images {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            height: 250px;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            margin: 0;
+            font-size: 1.2rem;
         }
 
         /* Cases Section */
         .cases {
             padding: 100px 0;
             background-color: white;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: white;
+            color: var(--dark-color);
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
         }
 
         .cases-grid {
@@ -460,7 +569,7 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .case-card:hover {
@@ -498,6 +607,10 @@
             color: var(--gray-color);
             margin-bottom: 20px;
             text-align: justify;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .case-meta {
@@ -510,6 +623,23 @@
             font-size: 0.9rem;
         }
 
+        .view-details-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .view-details-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
         /* Testimonials Section */
         .testimonials {
             padding: 100px 0;
@@ -518,29 +648,13 @@
             overflow: hidden;
         }
 
-        .testimonials::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: url('https://placehold.co/800x600/f8fafc/1a3a6e?text=') no-repeat center center;
-            opacity: 0.05;
-            z-index: 0;
-        }
-
-        .testimonials-content {
-            position: relative;
-            z-index: 1;
-        }
-
         .testimonials-slider {
             display: flex;
             gap: 30px;
             overflow-x: auto;
             padding: 20px 0;
             scrollbar-width: none;
+            margin-bottom: 30px;
         }
 
         .testimonials-slider::-webkit-scrollbar {
@@ -553,11 +667,19 @@
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             min-width: 350px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
         }
 
         .testimonial-card:hover {
             transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .rating {
+            color: #f59e0b;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
         .testimonial-content {
@@ -610,66 +732,6 @@
         .client-details p {
             color: var(--gray-color);
             font-size: 0.9rem;
-        }
-
-        .rating {
-            color: #f59e0b;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        /* Map Section */
-        .map-section {
-            padding: 100px 0;
-            background-color: white;
-        }
-
-        .map-container {
-            height: 500px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .map-info {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .map-info p {
-            font-size: 1.2rem;
-            color: var(--gray-color);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .directions-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .directions-btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(26, 58, 110, 0.2);
         }
 
         /* Contact Section */
@@ -748,13 +810,24 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--accent-color);
             box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+        }
+
+        .form-control.error {
+            border-color: #e53e3e;
+        }
+
+        .error-message {
+            color: #e53e3e;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
         }
 
         textarea.form-control {
@@ -771,13 +844,29 @@
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             width: 100%;
         }
 
         .submit-btn:hover {
             background-color: #e69009;
             transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            background-color: #38a169;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
         }
 
         /* Footer */
@@ -828,7 +917,7 @@
         .footer-links a {
             color: #a0aec0;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -854,7 +943,7 @@
             background-color: rgba(255, 255, 255, 0.1);
             color: white;
             border-radius: 50%;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .social-links a:hover {
@@ -886,13 +975,25 @@
             font-size: 2rem;
             box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-decoration: none;
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1) translateY(-5px);
             box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive Design */
@@ -919,14 +1020,10 @@
             .contact-container {
                 flex-direction: column;
             }
-            
-            .map-container {
-                height: 400px;
-            }
         }
 
         @media (max-width: 768px) {
-            .hero h2 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
@@ -968,18 +1065,14 @@
                 bottom: 20px;
                 left: 20px;
             }
-            
-            .map-container {
-                height: 350px;
-            }
         }
 
         @media (max-width: 576px) {
             .hero {
-                padding: 60px 0;
+                padding: 80px 0 60px;
             }
 
-            .hero h2 {
+            .hero h1 {
                 font-size: 2rem;
             }
 
@@ -994,10 +1087,6 @@
             .whatsapp-btn {
                 font-size: 0.8rem;
                 padding: 6px 12px;
-            }
-            
-            .map-container {
-                height: 300px;
             }
         }
     </style>
@@ -1096,7 +1185,6 @@
                 <li><a href="#court">صور المحكمة</a></li>
                 <li><a href="#cases">القضايا السابقة</a></li>
                 <li><a href="#testimonials">آراء العملاء</a></li>
-                <li><a href="#map">الخريطة</a></li>
                 <li><a href="#contact">اتصل بنا</a></li>
             </ul>
         </div>
@@ -1105,7 +1193,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h2>مكتب <span class="highlight">المحامي مجدي رياض</span> بالنقض</h2>
+            <h1>مكتب <span class="highlight">المحامي مجدي رياض</span> بالنقض</h1>
             <p>تمثيل قانوني متميز وخدمات استشارية عالية الجودة في جميع القضايا المدنية والتجارية منذ أكثر من 40 عاماً</p>
             <div class="cta-buttons">
                 <a href="https://wa.me/201124299138" class="btn btn-primary" target="_blank">
@@ -1116,6 +1204,52 @@
                     <i class="fas fa-phone"></i>
                     اتصل بنا الآن
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="section-title">
+                <h2>الوصول السريع</h2>
+            </div>
+            <div class="links-grid">
+                <div class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>القضايا المدنية</h3>
+                    <p>الدفاع عن حقوق العملاء في القضايا المدنية المختلفة أمام المحاكم المختصة.</p>
+                    <a href="#services" class="link-btn">تعرف أكثر</a>
+                </div>
+                
+                <div class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>القضايا التجارية</h3>
+                    <p>تمثيل الشركات والأفراد في القضايا التجارية والاستشارات القانونية المتعلقة بالأنشطة التجارية.</p>
+                    <a href="#services" class="link-btn">تعرف أكثر</a>
+                </div>
+                
+                <div class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>قضايا الأسرة</h3>
+                    <p>الدفاع عن حقوق الأفراد في قضايا الأسرة والمواريث أمام المحاكم الشرعية.</p>
+                    <a href="#services" class="link-btn">تعرف أكثر</a>
+                </div>
+                
+                <div class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>الاستشارات القانونية</h3>
+                    <p>تقديم الاستشارات القانونية الشاملة للعملاء في مختلف المجالات القانونية.</p>
+                    <a href="#services" class="link-btn">تعرف أكثر</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1134,6 +1268,10 @@
                     <h3>خبير قانوني معتمد بالنقض</h3>
                     <p>يحمل المحامي مجدي رياض شهادة مزاولة المحاماة من نقابة المحامين المصرية، وله خبرة طويلة تمتد لأكثر من 40 عاماً في مجالات القانون المختلفة، مع تخصص دقيق في القضايا المدنية والتجارية.</p>
                     <p>يتميز المحامي مجدي رياض بالكفاءة العالية والاحترافية في التعامل مع القضايا، حيث يضع مصلحة موكله في المقام الأول، ويحرص على تحقيق أفضل النتائج القانونية الممكنة من خلال استراتيجيات دفاع متقنة وتقديم الأدلة والمرافعات بأسلوب قانوني دقيق.</p>
+                    
+                    <div class="quote">
+                        "أؤمن بأن العدالة ليست مجرد هدف، بل واجب علينا تحقيقه لكل موكل يثق فينا. كل قضية بالنسبة لي هي قضية شخصية أعيشها بقلبي قبل عقلي."
+                    </div>
                     
                     <div class="qualification">
                         <i class="fas fa-graduation-cap"></i>
@@ -1163,33 +1301,6 @@
         </div>
     </section>
 
-    <!-- Court Images Section -->
-    <section class="court-images" id="court">
-        <div class="container">
-            <h2>مقر المحكمة الجزئية</h2>
-            <div class="images-grid">
-                <div class="image-card">
-                    <img src="https://placehold.co/600x400/2c5282/ffffff?text=واجهة+المحكمة+الجزئية" alt="واجهة المحكمة الجزئية">
-                </div>
-                <div class="image-card">
-                    <img src="https://placehold.co/600x400/1a3a6e/ffffff?text=مدخل+المحكمة+الجزئية" alt="مدخل المحكمة الجزئية">
-                </div>
-                <div class="image-card">
-                    <img src="https://placehold.co/600x400/2c5282/ffffff?text=أروقة+المحكمة+الجزئية" alt="أروقة المحكمة الجزئية">
-                </div>
-                <div class="image-card">
-                    <img src="https://placehold.co/600x400/1a3a6e/ffffff?text=قاعة+الجلسات" alt="قاعة الجلسات">
-                </div>
-                <div class="image-card">
-                    <img src="https://placehold.co/600x400/2c5282/ffffff?text=مكتب+التسجيل" alt="مكتب التسجيل">
-                </div>
-                <div class="image-card">
-                    <img src="https://placehold.co/600x400/1a3a6e/ffffff?text=المحكمه+الداخلية" alt="المحكمة الداخلية">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
@@ -1211,6 +1322,10 @@
                             <li><i class="fas fa-check-circle"></i> قضايا الحجز والتنفيذ</li>
                             <li><i class="fas fa-check-circle"></i> قضايا المنازعات العقارية</li>
                         </ul>
+                        <a href="https://wa.me/201124299138" class="read-more-btn" target="_blank">
+                            <i class="fas fa-arrow-left"></i>
+                            تعرف أكثر
+                        </a>
                     </div>
                 </div>
                 
@@ -1228,6 +1343,10 @@
                             <li><i class="fas fa-check-circle"></i> العقود التجارية والاستشارات القانونية</li>
                             <li><i class="fas fa-check-circle"></i> قضايا التمويل والاستثمار</li>
                         </ul>
+                        <a href="https://wa.me/201124299138" class="read-more-btn" target="_blank">
+                            <i class="fas fa-arrow-left"></i>
+                            تعرف أكثر
+                        </a>
                     </div>
                 </div>
                 
@@ -1245,6 +1364,10 @@
                             <li><i class="fas fa-check-circle"></i> قضايا إثبات النسب</li>
                             <li><i class="fas fa-check-circle"></i> قضايا الوصايا</li>
                         </ul>
+                        <a href="https://wa.me/201124299138" class="read-more-btn" target="_blank">
+                            <i class="fas fa-arrow-left"></i>
+                            تعرف أكثر
+                        </a>
                     </div>
                 </div>
                 
@@ -1262,6 +1385,10 @@
                             <li><i class="fas fa-check-circle"></i> التمثيل القانوني في المفاوضات</li>
                             <li><i class="fas fa-check-circle"></i> الاستشارات القانونية للشركات</li>
                         </ul>
+                        <a href="https://wa.me/201124299138" class="read-more-btn" target="_blank">
+                            <i class="fas fa-arrow-left"></i>
+                            تعرف أكثر
+                        </a>
                     </div>
                 </div>
                 
@@ -1279,6 +1406,10 @@
                             <li><i class="fas fa-check-circle"></i> قضايا فسخ التعاقدات الحكومية</li>
                             <li><i class="fas fa-check-circle"></i> الطعون على المناقصات</li>
                         </ul>
+                        <a href="https://wa.me/201124299138" class="read-more-btn" target="_blank">
+                            <i class="fas fa-arrow-left"></i>
+                            تعرف أكثر
+                        </a>
                     </div>
                 </div>
                 
@@ -1296,7 +1427,70 @@
                             <li><i class="fas fa-check-circle"></i> التوفيق في المنازعات المالية</li>
                             <li><i class="fas fa-check-circle"></i> صياغة اتفاقيات التسوية</li>
                         </ul>
+                        <a href="https://wa.me/201124299138" class="read-more-btn" target="_blank">
+                            <i class="fas fa-arrow-left"></i>
+                            تعرف أكثر
+                        </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Court Images Section -->
+    <section class="court-images" id="court">
+        <div class="container">
+            <div class="section-title">
+                <h2>مقر المحكمة الجزئية</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <a href="https://placehold.co/800x600/2c5282/ffffff?text=واجهة+المحكمة+الجزئية" data-lightbox="court" data-title="واجهة المحكمة الجزئية">
+                        <img src="https://placehold.co/600x400/2c5282/ffffff?text=واجهة+المحكمة+الجزئية" alt="واجهة المحكمة الجزئية">
+                        <div class="gallery-overlay">
+                            <h4>واجهة المحكمة</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="https://placehold.co/800x600/1a3a6e/ffffff?text=مدخل+المحكمة+الجزئية" data-lightbox="court" data-title="مدخل المحكمة الجزئية">
+                        <img src="https://placehold.co/600x400/1a3a6e/ffffff?text=مدخل+المحكمة+الجزئية" alt="مدخل المحكمة الجزئية">
+                        <div class="gallery-overlay">
+                            <h4>مدخل المحكمة</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="https://placehold.co/800x600/2c5282/ffffff?text=أروقة+المحكمة+الجزئية" data-lightbox="court" data-title="أروقة المحكمة الجزئية">
+                        <img src="https://placehold.co/600x400/2c5282/ffffff?text=أروقة+المحكمة+الجزئية" alt="أروقة المحكمة الجزئية">
+                        <div class="gallery-overlay">
+                            <h4>أروقة المحكمة</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="https://placehold.co/800x600/1a3a6e/ffffff?text=قاعة+الجلسات" data-lightbox="court" data-title="قاعة الجلسات">
+                        <img src="https://placehold.co/600x400/1a3a6e/ffffff?text=قاعة+الجلسات" alt="قاعة الجلسات">
+                        <div class="gallery-overlay">
+                            <h4>قاعة الجلسات</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="https://placehold.co/800x600/2c5282/ffffff?text=مكتب+التسجيل" data-lightbox="court" data-title="مكتب التسجيل">
+                        <img src="https://placehold.co/600x400/2c5282/ffffff?text=مكتب+التسجيل" alt="مكتب التسجيل">
+                        <div class="gallery-overlay">
+                            <h4>مكتب التسجيل</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="https://placehold.co/800x600/1a3a6e/ffffff?text=المحكمه+الداخلية" data-lightbox="court" data-title="المحكمة الداخلية">
+                        <img src="https://placehold.co/600x400/1a3a6e/ffffff?text=المحكمه+الداخلية" alt="المحكمة الداخلية">
+                        <div class="gallery-overlay">
+                            <h4>المحكمة الداخلية</h4>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1308,8 +1502,15 @@
             <div class="section-title">
                 <h2>القضايا السابقة</h2>
             </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">جميع القضايا</button>
+                <button class="filter-btn" data-filter="civil">مدنية</button>
+                <button class="filter-btn" data-filter="commercial">تجارية</button>
+                <button class="filter-btn" data-filter="family">أسرة</button>
+                <button class="filter-btn" data-filter="administrative">إدارية</button>
+            </div>
             <div class="cases-grid">
-                <div class="case-card">
+                <div class="case-card" data-category="civil">
                     <div class="case-image">
                         <img src="https://placehold.co/400x200/2c5282/ffffff?text=قضية+تجارية" alt="قضية تجارية">
                     </div>
@@ -1320,10 +1521,14 @@
                             <span><i class="fas fa-calendar"></i> 2023</span>
                             <span><i class="fas fa-gavel"></i> المحكمة الاقتصادية</span>
                         </div>
+                        <a href="https://wa.me/201124299138" class="view-details-btn" target="_blank">
+                            <i class="fas fa-arrow-left"></i>
+                            عرض التفاصيل
+                        </a>
                     </div>
                 </div>
                 
-                <div class="case-card">
+                <div class="case-card" data-category="civil">
                     <div class="case-image">
                         <img src="https://placehold.co/400x200/1a3a6e/ffffff?text=قضية+أرض" alt="قضية أرض">
                     </div>
@@ -1334,10 +1539,14 @@
                             <span><i class="fas fa-calendar"></i> 2021</span>
                             <span><i class="fas fa-gavel"></i> المحكمة الابتدائية</span>
                         </div>
+                        <a href="https://wa.me/201124299138" class="view-details-btn" target="_blank">
+                            <i class="fas fa-arrow-left"></i>
+                            عرض التفاصيل
+                        </a>
                     </div>
                 </div>
                 
-                <div class="case-card">
+                <div class="case-card" data-category="family">
                     <div class="case-image">
                         <img src="https://placehold.co/400x200/2c5282/ffffff?text=قضية+نفقة" alt="قضية نفقة">
                     </div>
@@ -1348,10 +1557,14 @@
                             <span><i class="fas fa-calendar"></i> 2023</span>
                             <span><i class="fas fa-gavel"></i> محكمة الأسرة</span>
                         </div>
+                        <a href="https://wa.me/201124299138" class="view-details-btn" target="_blank">
+                            <i class="fas fa-arrow-left"></i>
+                            عرض التفاصيل
+                        </a>
                     </div>
                 </div>
                 
-                <div class="case-card">
+                <div class="case-card" data-category="administrative">
                     <div class="case-image">
                         <img src="https://placehold.co/400x200/1a3a6e/ffffff?text=قضية+إدارية" alt="قضية إدارية">
                     </div>
@@ -1362,6 +1575,10 @@
                             <span><i class="fas fa-calendar"></i> 2022</span>
                             <span><i class="fas fa-gavel"></i> مجلس الدولة</span>
                         </div>
+                        <a href="https://wa.me/201124299138" class="view-details-btn" target="_blank">
+                            <i class="fas fa-arrow-left"></i>
+                            عرض التفاصيل
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1510,25 +1727,6 @@
         </div>
     </section>
 
-    <!-- Map Section -->
-    <section class="map-section" id="map">
-        <div class="container">
-            <div class="section-title">
-                <h2>موقع المكتب</h2>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.490841327733!2d31.239467515183334!3d30.00885288188518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581e2d1a5a5a5f%3A0x5a5a5a5a5a5a5a5a!2s%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20......" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <div class="map-info">
-                <p><i class="fas fa-map-marker-alt"></i> شارع عبد المنعم رياض، المعادي، بجوار المحكمة الجزئية، الدور الأول</p>
-                <a href="https://maps.app.goo.gl/jFkqkqWgJdxTixgs7" target="_blank" class="directions-btn">
-                    <i class="fas fa-directions"></i>
-                    اتجه إلى المكتب
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -1562,21 +1760,23 @@
                             <i class="fas fa-clock"></i>
                             <div>
                                 <h4>ساعات العمل</h4>
-                                <p>من السبت إلى الخميس، من 9:00 ص إلى 6:00 م</p>
+                                <p>من الجمعة إلى الخميس، من 9:00 ص إلى 10:00 م</p>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="contact-form">
                     <h2 style="color: var(--primary-color); margin-bottom: 20px;">أرسل رسالة</h2>
-                    <form action="https://formspree.io/f/xvgqnplk" method="POST">
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">الاسم الكامل</label>
                             <input type="text" id="name" name="name" class="form-control" required>
+                            <div class="error-message" id="nameError">الرجاء إدخال الاسم الكامل</div>
                         </div>
                         <div class="form-group">
                             <label for="phone">رقم الهاتف</label>
                             <input type="tel" id="phone" name="phone" class="form-control" required>
+                            <div class="error-message" id="phoneError">الرجاء إدخال رقم هاتف صحيح</div>
                         </div>
                         <div class="form-group">
                             <label for="subject">نوع القضية</label>
@@ -1593,11 +1793,15 @@
                         <div class="form-group">
                             <label for="message">الرسالة</label>
                             <textarea id="message" name="message" class="form-control" required></textarea>
+                            <div class="error-message" id="messageError">الرجاء إدخال الرسالة</div>
                         </div>
-                        <button type="submit" class="submit-btn">
+                        <button type="submit" class="submit-btn" id="submitBtn">
                             <i class="fas fa-paper-plane"></i>
                             إرسال الرسالة
                         </button>
+                        <div class="success-message" id="successMessage">
+                            تم إرسال رسالتك بنجاح. سيقوم المحامي بالتواصل معك في أقرب وقت ممكن.
+                        </div>
                     </form>
                 </div>
             </div>
@@ -1638,7 +1842,6 @@
                         <li><a href="#court"><i class="fas fa-chevron-left"></i> صور المحكمة</a></li>
                         <li><a href="#cases"><i class="fas fa-chevron-left"></i> القضايا السابقة</a></li>
                         <li><a href="#testimonials"><i class="fas fa-chevron-left"></i> آراء العملاء</a></li>
-                        <li><a href="#map"><i class="fas fa-chevron-left"></i> الخريطة</a></li>
                         <li><a href="#contact"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
                     </ul>
                 </div>
@@ -1648,7 +1851,7 @@
                         <li><a href="tel:01124299138"><i class="fas fa-phone"></i> 01124299138</a></li>
                         <li><a href="https://wa.me/201124299138" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a></li>
                         <li><a href="#"><i class="fas fa-map-marker-alt"></i> شارع عبد المنعم رياض، المعادي، بجوار المحكمة الجزئية، الدور الأول</a></li>
-                        <li><a href="#"><i class="fas fa-clock"></i> من السبت إلى الخميس، 9:00 ص - 6:00 م</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> من الجمعة إلى الخميس، 9:00 ص - 10:00 م</a></li>
                     </ul>
                 </div>
             </div>
@@ -1663,7 +1866,17 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script>
+        // Initialize Lightbox
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'disableScrolling': true,
+            'positionFromRight': 0,
+            'positionFromTop': 50
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1697,17 +1910,111 @@
             });
         });
 
-        // Form submission success message
-        const contactForm = document.querySelector('.contact-form form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                // The form will be submitted to Formspree automatically
-                // We can show a success message after submission
-                setTimeout(() => {
-                    alert('تم إرسال رسالتك بنجاح. سيقوم المحامي بالتواصل معك في أقرب وقت ممكن.');
-                }, 1000);
+        // Cases filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const caseCards = document.querySelectorAll('.case-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                caseCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
+        });
+
+        // Form validation and submission
+        const contactForm = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const phoneInput = document.getElementById('phone');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('nameError');
+        const phoneError = document.getElementById('phoneError');
+        const messageError = document.getElementById('messageError');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+
+        function validateName() {
+            if (nameInput.value.trim() === '') {
+                nameInput.classList.add('error');
+                nameError.style.display = 'block';
+                return false;
+            } else {
+                nameInput.classList.remove('error');
+                nameError.style.display = 'none';
+                return true;
+            }
         }
+
+        function validatePhone() {
+            const phoneRegex = /^[\+]?[0-9]{10,12}$/;
+            if (phoneInput.value.trim() === '' || !phoneRegex.test(phoneInput.value.trim())) {
+                phoneInput.classList.add('error');
+                phoneError.style.display = 'block';
+                return false;
+            } else {
+                phoneInput.classList.remove('error');
+                phoneError.style.display = 'none';
+                return true;
+            }
+        }
+
+        function validateMessage() {
+            if (messageInput.value.trim() === '') {
+                messageInput.classList.add('error');
+                messageError.style.display = 'block';
+                return false;
+            } else {
+                messageInput.classList.remove('error');
+                messageError.style.display = 'none';
+                return true;
+            }
+        }
+
+        nameInput.addEventListener('blur', validateName);
+        phoneInput.addEventListener('blur', validatePhone);
+        messageInput.addEventListener('blur', validateMessage);
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const isNameValid = validateName();
+            const isPhoneValid = validatePhone();
+            const isMessageValid = validateMessage();
+            
+            if (isNameValid && isPhoneValid && isMessageValid) {
+                // Disable submit button
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+                
+                // Here you would typically send the form data to a server
+                // For this example, we'll simulate a successful submission
+                setTimeout(() => {
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    // Reset form
+                    contactForm.reset();
+                    // Re-enable submit button
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> إرسال الرسالة';
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                }, 1500);
+            }
+        });
     </script>
 </body>
 </html>
